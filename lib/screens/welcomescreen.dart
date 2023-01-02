@@ -114,8 +114,8 @@ class _welcomescreenState extends State<welcomescreen> {
                             right: 30,
                           ),
                           child: (Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
-                            'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                            'Text summarizer is a tool that wraps up a text to a specified short length.'
+                            'It condenses a long article to main points.',
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white, fontSize: 12),
                           )),

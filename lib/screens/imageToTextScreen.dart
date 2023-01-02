@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:summarizer/screens/navBar.dart';
 import 'package:summarizer/screens/summarizer.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
@@ -7,7 +8,7 @@ import '../util/ocr.dart';
 import 'dart:io';
 
 class imgtotext extends StatefulWidget {
-  const imgtotext({super.key});
+  imgtotext({super.key});
 
   @override
   State<imgtotext> createState() => _imgtotextState();
@@ -50,6 +51,7 @@ class _imgtotextState extends State<imgtotext> {
   ////////////////////////////////////////////////////////////////////////////////
   @override
   Widget build(BuildContext context) {
+    final _formkey = GlobalKey<FormBuilderState>();
     return Scaffold(
       drawer: NavBar(),
       appBar: PreferredSize(
@@ -247,7 +249,7 @@ class _imgtotextState extends State<imgtotext> {
                   //textAlign: TextAlign.left,
                   minLines: null,
                   maxLines: null,
-                  keyboardType: TextInputType.multiline,
+                  //keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Scanned Text',
@@ -316,6 +318,10 @@ class _imgtotextState extends State<imgtotext> {
                 ),
               ],
             ),
+            FormBuilder(
+              key: _formkey,
+              child: FormBuilderTextField(name: "summarizer"),
+            )
           ]),
         ),
       )),
