@@ -1,11 +1,13 @@
+// ignore_for_file: empty_catches, use_build_context_synchronously, duplicate_ignore
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
 import '../main.dart';
 import '../util/showSnackBar.dart';
 
+// ignore: camel_case_types
 class fireBaseAuthMethods {
   final FirebaseAuth _auth;
   fireBaseAuthMethods(this._auth);
@@ -20,7 +22,7 @@ class fireBaseAuthMethods {
     showDialog(
         context: context,
         barrierDismissible: false,
-        builder: (context) => Center(
+        builder: (context) => const Center(
               child: CircularProgressIndicator(),
             ));
     try {
@@ -44,9 +46,7 @@ class fireBaseAuthMethods {
             await auth.signInWithPopup(authProvider);
 
         user = userCredential.user;
-      } catch (e) {
-        print(e);
-      }
+      } catch (e) {}
     } else {
       final GoogleSignIn googleSignIn = GoogleSignIn();
 
@@ -67,8 +67,11 @@ class fireBaseAuthMethods {
               await auth.signInWithCredential(credential);
 
           user = userCredential.user;
+          // ignore: duplicate_ignore
         } on FirebaseAuthException catch (e) {
+          // ignore: duplicate_ignore
           if (e.code == 'account-exists-with-different-credential') {
+            // ignore: use_build_context_synchronously
             ScaffoldMessenger.of(context).showSnackBar(
               customSnackBar(
                 content:
@@ -98,17 +101,13 @@ class fireBaseAuthMethods {
     return user;
   }
 
-  Future<void> _signOut() async {
-    await FirebaseAuth.instance.signOut();
-  }
-
   //custom snack bar
   static SnackBar customSnackBar({required String content}) {
     return SnackBar(
       backgroundColor: Colors.black,
       content: Text(
         content,
-        style: TextStyle(color: Colors.redAccent, letterSpacing: 0.5),
+        style: const TextStyle(color: Colors.redAccent, letterSpacing: 0.5),
       ),
     );
   }

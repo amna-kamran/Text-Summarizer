@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
+// ignore: camel_case_types
 class scroll extends StatefulWidget {
   const scroll({super.key});
 
@@ -9,6 +8,7 @@ class scroll extends StatefulWidget {
   State<scroll> createState() => _scrollState();
 }
 
+// ignore: camel_case_types
 class _scrollState extends State<scroll> {
   ScrollController sc = ScrollController();
   @override
@@ -27,7 +27,7 @@ class _scrollState extends State<scroll> {
               minLines: null,
               maxLines: null,
               textAlign: TextAlign.center,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 border: InputBorder.none,
                 filled: true,
                 fillColor: Colors.amber,

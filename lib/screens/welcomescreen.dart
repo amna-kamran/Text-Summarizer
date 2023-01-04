@@ -1,12 +1,13 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+// ignore: duplicate_ignore
+// ignore_for_file: camel_case_types, duplicate_ignore
+
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:summarizer/screens/signup.dart';
-import 'package:summarizer/screens/summarizer.dart';
 import 'staticbar.dart';
 
+// ignore: camel_case_types
 class welcomescreen extends StatefulWidget {
   const welcomescreen({super.key});
 
@@ -19,7 +20,7 @@ class _welcomescreenState extends State<welcomescreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assets/Section 19.png'),
           fit: BoxFit.cover,
@@ -91,7 +92,7 @@ class _welcomescreenState extends State<welcomescreen> {
                 child: SmoothPageIndicator(
                     controller: controller,
                     count: 3,
-                    effect: WormEffect(
+                    effect: const WormEffect(
                         dotHeight: 9,
                         dotWidth: 9,
                         spacing: 5,
@@ -105,44 +106,39 @@ class _welcomescreenState extends State<welcomescreen> {
                 child: PageView(
                   controller: controller,
                   children: [
-                    Center(
-                      child: Container(
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                            left: 30,
-                            bottom: 10,
-                            right: 30,
-                          ),
-                          child: (Text(
-                            'Text summarizer is a tool that wraps up a text to a specified short length.'
-                            'It condenses a long article to main points.',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.white, fontSize: 12),
-                          )),
+                    const Center(
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          left: 30,
+                          bottom: 10,
+                          right: 30,
                         ),
-                      ),
-                    ),
-                    Center(
-                      child: Container(
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                            left: 30,
-                            bottom: 10,
-                            right: 30,
-                          ),
-                          child: (Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
-                            'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(color: Colors.white, fontSize: 12),
-                          )),
-                        ),
-                      ),
-                    ),
-                    Center(
-                      child: Container(
                         child: (Text(
-                          'Text 3',
+                          'Text summarizer is a tool that wraps up a text to a specified short length.'
+                          'It condenses a long article to main points.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white, fontSize: 12),
+                        )),
+                      ),
+                    ),
+                    const Center(
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          left: 30,
+                          bottom: 10,
+                          right: 30,
+                        ),
+                        child: (Text(
+                          '...',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(color: Colors.white, fontSize: 12),
+                        )),
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        child: (const Text(
+                          '->',
                           textAlign: TextAlign.center,
                           style: TextStyle(color: Colors.white),
                         )),
@@ -163,22 +159,17 @@ class _welcomescreenState extends State<welcomescreen> {
                       Navigator.push(
                           context,
                           PageTransition(
-                              child: staticbar(),
-                              type: PageTransitionType.rightToLeft)
-                          // PageTransition(
-                          //   child: summarizer(),
-                          //   type: PageTransitionType.leftToRight,
-                          // ),
-                          );
+                              child: const staticbar(),
+                              type: PageTransitionType.rightToLeft));
                     },
                     style: OutlinedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25.0),
                       ),
-                      side: BorderSide(
+                      side: const BorderSide(
                           width: 0.4, color: Color.fromRGBO(109, 241, 180, 1)),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Get Started',
                       style: TextStyle(color: Colors.white),
                     ),
@@ -196,17 +187,17 @@ class _welcomescreenState extends State<welcomescreen> {
                       Navigator.push(
                           context,
                           PageTransition(
-                              child: signup(),
+                              child: const signup(),
                               type: PageTransitionType.rightToLeft));
                     },
                     style: OutlinedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25.0),
                       ),
-                      side: BorderSide(
+                      side: const BorderSide(
                           width: 0.4, color: Color.fromRGBO(109, 241, 180, 1)),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Sign Up',
                       style: TextStyle(color: Colors.white),
                     ),
@@ -216,9 +207,9 @@ class _welcomescreenState extends State<welcomescreen> {
               Container(
                   child: (TextButton(
                       onPressed: () {},
-                      child: (new Text(
+                      child: (const Text(
                         'Already Have an Account?',
-                        style: new TextStyle(
+                        style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
                             color: Color.fromARGB(255, 94, 197, 255)),

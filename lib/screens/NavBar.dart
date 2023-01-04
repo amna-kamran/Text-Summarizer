@@ -2,24 +2,23 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:summarizer/screens/welcomescreen.dart';
-import 'package:summarizer/services/firebase_auth_methods.dart';
 import 'imageToTextScreen.dart';
 
 class NavBar extends StatelessWidget {
+  const NavBar({super.key});
+
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser!;
-
     return Drawer(
       child: Container(
-        color: Color.fromARGB(255, 56, 20, 56),
+        color: const Color.fromARGB(255, 56, 20, 56),
         child: ListView(
           // Remove padding
           padding: EdgeInsets.zero,
           children: [
             UserAccountsDrawerHeader(
-              accountName: Text('Oflutter.com'),
-              accountEmail: Text('example@gmail.com'),
+              accountName: const Text('Oflutter.com'),
+              accountEmail: const Text('example@gmail.com'),
               currentAccountPicture: CircleAvatar(
                 child: ClipOval(
                   child: Image.network(
@@ -30,22 +29,23 @@ class NavBar extends StatelessWidget {
                   ),
                 ),
               ),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 22, 8, 22),
               ),
             ),
             ListTile(
-              leading: Icon(
+              leading: const Icon(
                 Icons.person,
                 color: Colors.white,
               ),
-              title: Text(
+              title: const Text(
                 'Profile',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w300,
                 ),
               ),
+              // ignore: avoid_returning_null_for_void
               onTap: () => null,
             ),
             ListTile(
@@ -53,15 +53,15 @@ class NavBar extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => imgtotext(),
+                    builder: (context) => const imgtotext(),
                   ),
                 );
               },
-              leading: Icon(
+              leading: const Icon(
                 Icons.document_scanner,
                 color: Colors.white,
               ),
-              title: Text(
+              title: const Text(
                 'Image to Text',
                 style: TextStyle(
                   color: Colors.white,
@@ -69,7 +69,7 @@ class NavBar extends StatelessWidget {
                 ),
               ),
             ),
-            ListTile(
+            const ListTile(
               leading: Icon(
                 Icons.description,
                 color: Colors.white,
@@ -83,74 +83,78 @@ class NavBar extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(
+              leading: const Icon(
                 Icons.info,
                 color: Colors.white,
               ),
-              title: Text(
+              title: const Text(
                 'Guide',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w300,
                 ),
               ),
+              // ignore: avoid_returning_null_for_void
               onTap: () => null,
             ),
-            Divider(
+            const Divider(
               color: Colors.black,
             ),
             ListTile(
-              leading: Icon(
+              leading: const Icon(
                 Icons.help,
                 color: Colors.white,
               ),
-              title: Text(
+              title: const Text(
                 'Help and Support',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w300,
                 ),
               ),
+              // ignore: avoid_returning_null_for_void
               onTap: () => null,
             ),
             ListTile(
-              leading: Icon(
+              leading: const Icon(
                 Icons.settings,
                 color: Colors.white,
               ),
-              title: Text(
+              title: const Text(
                 'Settings',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w300,
                 ),
               ),
+              // ignore: avoid_returning_null_for_void
               onTap: () => null,
             ),
-            Divider(
+            const Divider(
               color: Colors.black,
             ),
             ListTile(
-              title: Text(
+              title: const Text(
                 'Sign Out',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w300,
                 ),
               ),
-              leading: Icon(
+              leading: const Icon(
                 Icons.logout,
                 color: Colors.white,
               ),
               onTap: () async {
-                welcomescreen();
+                const welcomescreen();
                 final googleCurrentUser =
                     GoogleSignIn().currentUser ?? await GoogleSignIn().signIn();
-                if (googleCurrentUser != null)
+                if (googleCurrentUser != null) {
                   await GoogleSignIn().disconnect().catchError((e, stack) {});
+                }
 
-                final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-                await _firebaseAuth.signOut();
+                final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+                await firebaseAuth.signOut();
               },
             ),
           ],

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class onboarding extends StatefulWidget {
@@ -27,7 +25,7 @@ class _onboardingState extends State<onboarding> {
                 child: SmoothPageIndicator(
                     controller: controller,
                     count: 3,
-                    effect: WormEffect(
+                    effect: const WormEffect(
                         dotHeight: 10,
                         dotWidth: 10,
                         activeDotColor: Colors.black,
@@ -42,17 +40,17 @@ class _onboardingState extends State<onboarding> {
                   children: [
                     Center(
                       child: Container(
-                        child: (Text('Text 1')),
+                        child: (const Text('Text 1')),
                       ),
                     ),
                     Center(
                       child: Container(
-                        child: (Text('Text 2')),
+                        child: (const Text('Text 2')),
                       ),
                     ),
                     Center(
                       child: Container(
-                        child: (Text('Text 3')),
+                        child: (const Text('Text 3')),
                       ),
                     ),
                   ],

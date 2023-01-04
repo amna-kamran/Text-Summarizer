@@ -1,10 +1,7 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../util/ocr.dart';
 
 class ImageToText extends StatefulWidget {
@@ -39,7 +36,7 @@ class _ImageToTextState extends State<ImageToText> {
 
     for (TextBlock block in recognizedText.blocks) {
       setState(() {
-        outputText += block.text + "\n";
+        outputText += "${block.text}\n";
       });
     }
   }
@@ -47,12 +44,12 @@ class _ImageToTextState extends State<ImageToText> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Image to Text")),
+      appBar: AppBar(title: const Text("Image to Text")),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           pickImage(ImageSource.gallery, pickedImage);
         },
-        child: Icon(Icons.image),
+        child: const Icon(Icons.image),
       ),
       body: SizedBox(
         height: double.infinity,
@@ -75,7 +72,7 @@ class _ImageToTextState extends State<ImageToText> {
           Expanded(child: Container()),
           Text(
             outputText,
-            style: TextStyle(fontSize: 24),
+            style: const TextStyle(fontSize: 24),
           ),
           Expanded(child: Container()),
         ]),

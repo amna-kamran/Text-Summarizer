@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:summarizer/firebase_options.dart';
-
+// ignore: depend_on_referenced_packages
 import 'package:firebase_core/firebase_core.dart';
-import 'package:summarizer/screens/imageToTextScreen.dart';
 import 'package:summarizer/screens/mainScreen.dart';
 import 'package:flutter/services.dart';
 
@@ -13,7 +12,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   //SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Color.fromARGB(255, 88, 71, 129),
     statusBarIconBrightness: Brightness.dark,
   ));

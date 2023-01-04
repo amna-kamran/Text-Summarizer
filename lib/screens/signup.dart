@@ -1,12 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:summarizer/screens/staticbar.dart';
 import 'package:summarizer/screens/summarizer.dart';
 import 'package:summarizer/services/firebase_auth_methods.dart';
 
+// ignore: camel_case_types
 class signup extends StatefulWidget {
   const signup({super.key});
 
@@ -14,12 +13,14 @@ class signup extends StatefulWidget {
   State<signup> createState() => _signupState();
 }
 
+// ignore: camel_case_types
 class _signupState extends State<signup> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
 //dispose method
+  @override
   void dispose() {
     super.dispose();
     emailController.dispose();
@@ -36,11 +37,8 @@ class _signupState extends State<signup> {
 
   @override
   Widget build(BuildContext context) {
-    bool _isSigningIn = false;
     return Container(
-      //color: Color.fromARGB(255, 177, 20, 20),
-
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assets/Sign up.png'),
           fit: BoxFit.cover,
@@ -57,9 +55,9 @@ class _signupState extends State<signup> {
             decoration: BoxDecoration(
                 border: Border.all(
                   width: 0.5,
-                  color: Color.fromARGB(255, 250, 180, 0),
+                  color: const Color.fromARGB(255, 250, 180, 0),
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(45))),
+                borderRadius: const BorderRadius.all(Radius.circular(45))),
 
             //column child for adding signup fields
             child: Column(children: [
@@ -69,35 +67,30 @@ class _signupState extends State<signup> {
               ),
               Text(
                 'Create Account',
-                // style: TextStyle(
-                //   color: Color.fromARGB(255, 156, 156, 156),
-                //   fontSize: 35,
-                //   fontFamily: 'Med',
-                // ),
                 style: GoogleFonts.inter(
-                  color: Color.fromARGB(255, 243, 243, 243),
+                  color: const Color.fromARGB(255, 243, 243, 243),
                   fontSize: 35,
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 0.68,
                 height: MediaQuery.of(context).size.height * 0.06,
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 22, 8, 22),
+                    color: const Color.fromARGB(255, 22, 8, 22),
                     border: Border.all(
                       width: 0.5,
-                      color: Color.fromARGB(255, 109, 241, 180),
+                      color: const Color.fromARGB(255, 109, 241, 180),
                     ),
-                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                    borderRadius: const BorderRadius.all(Radius.circular(15))),
                 child: TextField(
                   controller: emailController,
                   style: GoogleFonts.inter(color: Colors.white, fontSize: 13),
                   maxLength: 40,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Enter Username/Email',
                     hintStyle: TextStyle(
@@ -109,24 +102,24 @@ class _signupState extends State<signup> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 0.68,
                 height: MediaQuery.of(context).size.height * 0.06,
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 22, 8, 22),
+                    color: const Color.fromARGB(255, 22, 8, 22),
                     border: Border.all(
                       width: 0.5,
-                      color: Color.fromARGB(255, 109, 241, 180),
+                      color: const Color.fromARGB(255, 109, 241, 180),
                     ),
-                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                    borderRadius: const BorderRadius.all(Radius.circular(15))),
                 child: TextField(
                   controller: passwordController,
                   style: GoogleFonts.inter(color: Colors.white, fontSize: 13),
                   maxLength: 20,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Enter Password',
                     hintStyle: TextStyle(
@@ -138,24 +131,24 @@ class _signupState extends State<signup> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 0.68,
                 height: MediaQuery.of(context).size.height * 0.06,
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 22, 8, 22),
+                    color: const Color.fromARGB(255, 22, 8, 22),
                     border: Border.all(
                       width: 0.5,
-                      color: Color.fromARGB(255, 109, 241, 180),
+                      color: const Color.fromARGB(255, 109, 241, 180),
                     ),
-                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                    borderRadius: const BorderRadius.all(Radius.circular(15))),
                 child: TextField(
                   controller: confirmPasswordController,
                   style: GoogleFonts.inter(color: Colors.white, fontSize: 13),
                   maxLength: 20,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Confirm Password',
                     hintStyle: TextStyle(
@@ -167,7 +160,7 @@ class _signupState extends State<signup> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -184,7 +177,7 @@ class _signupState extends State<signup> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25.0),
                       ),
-                      side: BorderSide(
+                      side: const BorderSide(
                           width: 1, color: Color.fromRGBO(109, 241, 180, 1)),
                     ),
                     child: Text(
@@ -194,80 +187,18 @@ class _signupState extends State<signup> {
                   ),
                 ),
               ),
-              SizedBox(),
+              const SizedBox(),
               Container(
                   child: (TextButton(
                       onPressed: () {},
-                      child: (new Text(
+                      child: (Text(
                         'Already Have an Account?',
                         style: GoogleFonts.inter(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
-                            color: Color.fromARGB(255, 94, 197, 255)),
+                            color: const Color.fromARGB(255, 94, 197, 255)),
                       ))))),
-              SizedBox(),
-              // Container(
-              //   padding: const EdgeInsets.only(bottom: 16.0),
-              //   child: _isSigningIn
-              //       ? CircularProgressIndicator(
-              //           valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-              //         )
-              //       : OutlinedButton(
-              //           style: ButtonStyle(
-              //             backgroundColor:
-              //                 MaterialStateProperty.all(Colors.white),
-              //             shape: MaterialStateProperty.all(
-              //               RoundedRectangleBorder(
-              //                 borderRadius: BorderRadius.circular(40),
-              //               ),
-              //             ),
-              //           ),
-              //           onPressed: () async {
-              //             setState(() {
-              //               _isSigningIn = true;
-              //             });
-
-              //             User? user = await fireBaseAuthMethods
-              //                 .signInWithGoogle(context: context);
-
-              //             setState(() {
-              //               _isSigningIn = false;
-              //             });
-
-              //             if (user != null) {
-              //               Navigator.of(context).pushReplacement(
-              //                 MaterialPageRoute(
-              //                   builder: (context) => summarizer(),
-              //                 ),
-              //               );
-              //             }
-              //           },
-              //           child: Padding(
-              //             padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-              //             child: Row(
-              //               mainAxisSize: MainAxisSize.min,
-              //               mainAxisAlignment: MainAxisAlignment.center,
-              //               children: <Widget>[
-              //                 // Image(
-              //                 //   image: AssetImage("assets/google_logo.png"),
-              //                 //   height: 35.0,
-              //                 // ),
-              //                 Padding(
-              //                   padding: const EdgeInsets.only(left: 10),
-              //                   child: Text(
-              //                     'Sign in with Google',
-              //                     style: TextStyle(
-              //                       fontSize: 20,
-              //                       color: Colors.black54,
-              //                       fontWeight: FontWeight.w600,
-              //                     ),
-              //                   ),
-              //                 )
-              //               ],
-              //             ),
-              //           ),
-              //         ),
-              // ),
+              const SizedBox(),
               Container(
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.008),
@@ -276,21 +207,18 @@ class _signupState extends State<signup> {
                   height: MediaQuery.of(context).size.height * 0.058,
                   child: OutlinedButton(
                     onPressed: () async {
-                      setState(() {
-                        _isSigningIn = true;
-                      });
+                      setState(() {});
 
                       User? user = await fireBaseAuthMethods.signInWithGoogle(
                           context: context);
 
-                      setState(() {
-                        _isSigningIn = false;
-                      });
+                      setState(() {});
 
                       if (user != null) {
+                        // ignore: use_build_context_synchronously
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
-                            builder: (context) => summarizer(),
+                            builder: (context) => const staticbar(),
                           ),
                         );
                       }
@@ -299,13 +227,10 @@ class _signupState extends State<signup> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25.0),
                       ),
-                      side: BorderSide(
+                      side: const BorderSide(
                           width: 1, color: Color.fromRGBO(109, 241, 180, 1)),
                     ),
-                    child: Text(
-                      'Sign Up',
-                      style: GoogleFonts.inter(color: Colors.white),
-                    ),
+                    child: Text('Google'),
                   ),
                 ),
               ),
